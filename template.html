@@ -1,11 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/vueJs/vue.js"></script>
     <title>template</title>
 </head>
+
 <body>
-    
+
+    <div id="app">
+        <h1>{{titulo}}</h1>
+        <div v-if="comprou" :style="{background: cor}">
+            <p>{{conteudo}}</p>
+            <p>{{lado * lado - lado / 100}}</p>
+            <p>{{comprou ? "Sim, ele comprou" : "Não comprou. Compre aqui"}}</p>
+            <a :href="href">{{href}}</a>
+            <input v-model="cor" type="color">
+            {{cor}}
+
+        </div>
+    </div>
+
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                titulo: "Learning Vue.js",
+                conteudo: "Esse é o conteudo",
+                lado: 5,
+                comprou: true,
+                href: "https://www.google.com.br",
+                cor: "#333"
+
+            }
+        })
+    </script>
+
 </body>
+
 </html>
